@@ -9,6 +9,7 @@ namespace PassKeeper
     {
 
         List<AccountList> Person = new List<AccountList>();
+        List<Account> MainAccnt = new List<Account>();
         
 
         public Form1()
@@ -22,9 +23,20 @@ namespace PassKeeper
         private void LoadPeopleList()
         {
             Person = SqliteDataAccess.LoadPeople();
-            WireUpPeopleList();
+            //WireUpPeopleList();
         }
 
+        private void LoadAccountList()
+        {
+            MainAccnt = SqliteDataAccess.LoadAccount();
+        }
+
+        private void LoadAccountText()
+        { 
+            //Load list data into text fields
+        }
+
+        /* Not used in the interface atm, kept for reference and possible re-use.
         private void WireUpPeopleList()
         {
             // Displays contents of the PersonList list.
@@ -34,6 +46,16 @@ namespace PassKeeper
             listPeopleListBox.DisplayMember = "fullName";
         }
 
+        private void WireUpAccountList()
+        {
+            // Displays contents of the AccountList list.
+            //Listbox properties
+            listPeopleListBox.DataSource = null;
+            listPeopleListBox.DataSource = MainAccnt;
+            listPeopleListBox.DisplayMember = "site";
+        }
+        */
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -41,23 +63,29 @@ namespace PassKeeper
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            LoadPeopleList();
+            LoadAccountList();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AccountList p = new AccountList();
+            Account m = new Account();
 
-            p.fName = firstNameText.Text;
-            p.lName = lastNameText.Text;
+            m.category = categoryText.Text;
+            m.site = siteText.Text;
+            m.username = usernameText.Text;
+            m.pass = passText.Text;
+            m.notes = notesText.Text;
 
-            // TODO - do something with this item
-            SqliteDataAccess.SavePerson(p);
-            WireUpPeopleList();
 
-            firstNameText.Text = "";
-            lastNameText.Text = "";
-            LoadPeopleList();
+            SqliteDataAccess.SaveAccount(m);
+            //WireUpAccountList();
+
+            categoryText.Text = "";
+            siteText.Text = "";
+            usernameText.Text = "";
+            passText.Text = "";
+            notesText.Text = "";
+            LoadAccountList();
         }
 
         private void comboBox1_Click(object sender, EventArgs e)
@@ -75,6 +103,13 @@ namespace PassKeeper
             q = (AccountList)comboBox1.SelectedItem;
             SqliteDataAccess.DeletePerson(q);
             LoadPeopleList();
+        }
+
+        private void btnSites_Click(object sender, EventArgs e)
+        {
+            if (panelSite.Visible == false) panelSite.Visible = true;
+            else
+                panelSite.Visible = false;
         }
     }
 }

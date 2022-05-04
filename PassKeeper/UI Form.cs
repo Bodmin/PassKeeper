@@ -11,12 +11,15 @@ namespace PassKeeper
         List<AccountList> Person = new List<AccountList>();
         List<Account> MainAccnt = new List<Account>();
         
+        
 
         public Form1()
         {
             InitializeComponent();
             LoadPeopleList();
             var bindingSource1 = new BindingSource();
+            
+
         
         }
 
@@ -110,6 +113,11 @@ namespace PassKeeper
             if (panelSite.Visible == false) panelSite.Visible = true;
             else
                 panelSite.Visible = false;
+        }
+
+        private void timerClock_Tick(object sender, EventArgs e)
+        {
+            labelTime.Text = string.Format("{0:hh:mm:ss tt}", DateTime.Now);
         }
     }
 }

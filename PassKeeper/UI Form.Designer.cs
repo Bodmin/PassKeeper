@@ -29,6 +29,7 @@ namespace PassKeeper
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -40,18 +41,21 @@ namespace PassKeeper
             this.passText = new System.Windows.Forms.TextBox();
             this.notesText = new System.Windows.Forms.TextBox();
             this.panelSite = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSites = new System.Windows.Forms.Button();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.timerClock = new System.Windows.Forms.Timer(this.components);
             this.panelSite.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(713, 415);
+            this.btnExit.Location = new System.Drawing.Point(875, 415);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 0;
@@ -159,33 +163,16 @@ namespace PassKeeper
             this.panelSite.Name = "panelSite";
             this.panelSite.Size = new System.Drawing.Size(343, 376);
             this.panelSite.TabIndex = 13;
+            this.panelSite.Visible = false;
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Category:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 15);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Site:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 15);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Username:";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 135);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 15);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Notes:";
             // 
             // label4
             // 
@@ -196,14 +183,32 @@ namespace PassKeeper
             this.label4.TabIndex = 16;
             this.label4.Text = "Password:";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 15);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Notes:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 15);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Username:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 15);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Site:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Category:";
             // 
             // btnSites
             // 
@@ -216,11 +221,37 @@ namespace PassKeeper
             this.btnSites.UseVisualStyleBackColor = true;
             this.btnSites.Click += new System.EventHandler(this.btnSites_Click);
             // 
+            // labelTime
+            // 
+            this.labelTime.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTime.Location = new System.Drawing.Point(375, 12);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(575, 137);
+            this.labelTime.TabIndex = 15;
+            this.labelTime.Text = "00:00:00";
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(375, 181);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 49);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "00:00:00";
+            // 
+            // timerClock
+            // 
+            this.timerClock.Enabled = true;
+            this.timerClock.Interval = 1000;
+            this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(978, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.btnSites);
             this.Controls.Add(this.panelSite);
             this.Controls.Add(this.btnExit);
@@ -251,6 +282,9 @@ namespace PassKeeper
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSites;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer timerClock;
     }
 }
 

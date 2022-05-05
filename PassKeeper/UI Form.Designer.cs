@@ -50,6 +50,7 @@ namespace PassKeeper
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelSite.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,14 +117,14 @@ namespace PassKeeper
             // 
             // siteText
             // 
-            this.siteText.Location = new System.Drawing.Point(106, 45);
+            this.siteText.Location = new System.Drawing.Point(105, 47);
             this.siteText.Name = "siteText";
             this.siteText.Size = new System.Drawing.Size(136, 23);
             this.siteText.TabIndex = 1;
             // 
             // usernameText
             // 
-            this.usernameText.Location = new System.Drawing.Point(106, 75);
+            this.usernameText.Location = new System.Drawing.Point(105, 76);
             this.usernameText.Name = "usernameText";
             this.usernameText.Size = new System.Drawing.Size(136, 23);
             this.usernameText.TabIndex = 2;
@@ -137,6 +138,7 @@ namespace PassKeeper
             // 
             // notesText
             // 
+            this.notesText.Enabled = false;
             this.notesText.Location = new System.Drawing.Point(106, 135);
             this.notesText.Multiline = true;
             this.notesText.Name = "notesText";
@@ -152,13 +154,14 @@ namespace PassKeeper
             this.panelSite.Controls.Add(this.label1);
             this.panelSite.Controls.Add(this.categoryText);
             this.panelSite.Controls.Add(this.notesText);
+            this.panelSite.Controls.Add(this.siteText);
             this.panelSite.Controls.Add(this.btnAdd);
+            this.panelSite.Controls.Add(this.usernameText);
             this.panelSite.Controls.Add(this.passText);
             this.panelSite.Controls.Add(this.btnRefresh);
-            this.panelSite.Controls.Add(this.usernameText);
             this.panelSite.Controls.Add(this.comboBox1);
-            this.panelSite.Controls.Add(this.siteText);
             this.panelSite.Controls.Add(this.btnDelete);
+            this.panelSite.Enabled = false;
             this.panelSite.Location = new System.Drawing.Point(804, 12);
             this.panelSite.Name = "panelSite";
             this.panelSite.Size = new System.Drawing.Size(350, 375);
@@ -204,7 +207,8 @@ namespace PassKeeper
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 15);
+            this.label1.Enabled = false;
+            this.label1.Location = new System.Drawing.Point(19, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 15);
             this.label1.TabIndex = 13;
@@ -252,16 +256,28 @@ namespace PassKeeper
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(31, 156);
+            this.panel1.Location = new System.Drawing.Point(506, 95);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.Size = new System.Drawing.Size(200, 50);
             this.panel1.TabIndex = 18;
+            this.panel1.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(581, 417);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
@@ -301,6 +317,7 @@ namespace PassKeeper
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

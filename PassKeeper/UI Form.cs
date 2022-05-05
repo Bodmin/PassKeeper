@@ -139,5 +139,13 @@ namespace PassKeeper
             if (checkBox1.Checked) TimeClock.Enabled = true;
             else TimeClock.Enabled = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var myForm = new frmSites();
+            myForm.Show();
+        }
     }
+
+
 }

@@ -26,4 +26,11 @@ namespace FormLibList
         public string pass { get; set; }
         public string notes { get; set; }
     }
+
+    public class Alarm
+    { 
+        public int id { get; set; }
+        public string time { get; set; }
+        public string label { get; set; }
+    }
 }

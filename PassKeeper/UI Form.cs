@@ -1,6 +1,7 @@
 ﻿using FormLibList;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PassKeeper
@@ -10,6 +11,7 @@ namespace PassKeeper
 
         List<AccountList> Person = new List<AccountList>();
         List<Account> MainAccnt = new List<Account>();
+        Timer TimeClock = new Timer();
         
         
 
@@ -18,7 +20,9 @@ namespace PassKeeper
             InitializeComponent();
             LoadPeopleList();
             var bindingSource1 = new BindingSource();
-            
+            TimeClock.Interval = 1000;
+            TimeClock.Tick += TimeClock_Tick;
+            //TimeClock.Start(); Not needed with the checkbox on the form, kept if necessary
 
         
         }
@@ -110,14 +114,30 @@ namespace PassKeeper
 
         private void btnSites_Click(object sender, EventArgs e)
         {
-            if (panelSite.Visible == false) panelSite.Visible = true;
+            //panelSite.Size = new Size(300, 50);
+            if (panelSite.Visible == false)
+            { 
+                panelSite.Visible = true;
+                panelSite.Location = new Point(804, 12);
+                panelSite.Size = new Size(350, 375);
+            }
             else
+            {
+                panelSite.Location = new Point(804, 12);
+                panelSite.Size = new Size(300, 50);
                 panelSite.Visible = false;
+            }
         }
 
-        private void timerClock_Tick(object sender, EventArgs e)
+        private void TimeClock_Tick(object sender, EventArgs e)
         {
             labelTime.Text = string.Format("{0:hh:mm:ss tt}", DateTime.Now);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked) TimeClock.Enabled = true;
+            else TimeClock.Enabled = false;
         }
     }
 }

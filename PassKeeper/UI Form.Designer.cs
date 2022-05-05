@@ -29,7 +29,6 @@ namespace PassKeeper
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -49,13 +48,14 @@ namespace PassKeeper
             this.btnSites = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.timerClock = new System.Windows.Forms.Timer(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelSite.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(875, 415);
+            this.btnExit.Location = new System.Drawing.Point(12, 418);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 0;
@@ -159,9 +159,9 @@ namespace PassKeeper
             this.panelSite.Controls.Add(this.comboBox1);
             this.panelSite.Controls.Add(this.siteText);
             this.panelSite.Controls.Add(this.btnDelete);
-            this.panelSite.Location = new System.Drawing.Point(12, 12);
+            this.panelSite.Location = new System.Drawing.Point(804, 12);
             this.panelSite.Name = "panelSite";
-            this.panelSite.Size = new System.Drawing.Size(343, 376);
+            this.panelSite.Size = new System.Drawing.Size(350, 375);
             this.panelSite.TabIndex = 13;
             this.panelSite.Visible = false;
             // 
@@ -212,7 +212,7 @@ namespace PassKeeper
             // 
             // btnSites
             // 
-            this.btnSites.Location = new System.Drawing.Point(13, 415);
+            this.btnSites.Location = new System.Drawing.Point(1079, 419);
             this.btnSites.Name = "btnSites";
             this.btnSites.Size = new System.Drawing.Size(75, 23);
             this.btnSites.TabIndex = 14;
@@ -224,9 +224,9 @@ namespace PassKeeper
             // labelTime
             // 
             this.labelTime.Font = new System.Drawing.Font("Segoe UI", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTime.Location = new System.Drawing.Point(375, 12);
+            this.labelTime.Location = new System.Drawing.Point(12, 8);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(575, 137);
+            this.labelTime.Size = new System.Drawing.Size(640, 137);
             this.labelTime.TabIndex = 15;
             this.labelTime.Text = "00:00:00";
             // 
@@ -239,17 +239,31 @@ namespace PassKeeper
             this.label6.TabIndex = 16;
             this.label6.Text = "00:00:00";
             // 
-            // timerClock
+            // checkBox1
             // 
-            this.timerClock.Enabled = true;
-            this.timerClock.Interval = 1000;
-            this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(93, 422);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(120, 19);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "Enable TimeClock";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(31, 156);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 18;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 450);
+            this.ClientSize = new System.Drawing.Size(1166, 450);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.btnSites);
@@ -260,6 +274,7 @@ namespace PassKeeper
             this.panelSite.ResumeLayout(false);
             this.panelSite.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -284,7 +299,8 @@ namespace PassKeeper
         private System.Windows.Forms.Button btnSites;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Timer timerClock;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -72,45 +72,7 @@ namespace PassKeeper
         {
             LoadAccountList();
         }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            Account m = new Account();
-
-            m.category = categoryText.Text;
-            m.site = siteText.Text;
-            m.username = usernameText.Text;
-            m.pass = passText.Text;
-            m.notes = notesText.Text;
-
-
-            SqliteDataAccess.SaveAccount(m);
-            //WireUpAccountList();
-
-            categoryText.Text = "";
-            siteText.Text = "";
-            usernameText.Text = "";
-            passText.Text = "";
-            notesText.Text = "";
-            LoadAccountList();
-        }
-
-        private void comboBox1_Click(object sender, EventArgs e)
-        {
-            var bindingSource1 = new BindingSource();
-            bindingSource1.DataSource = Person;
-            comboBox1.DataSource = bindingSource1.DataSource;
-            comboBox1.DisplayMember = "fullName";
-            comboBox1.ValueMember = "fullName";
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            AccountList q = new AccountList();
-            q = (AccountList)comboBox1.SelectedItem;
-            SqliteDataAccess.DeletePerson(q);
-            LoadPeopleList();
-        }
+          
 
         private void btnSites_Click(object sender, EventArgs e)
         {
